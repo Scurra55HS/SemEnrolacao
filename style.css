@@ -1,76 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .app {
-  background: rgba(0,0,0,0.4);
-  padding: 30px;
-  border-radius: 12px;
-  width: 320px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .timer h2 {
-  font-size: 48px;
-  margin: 20px 0;
+    font-size: 48px;
+    margin: 20px 0;
+    text-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
 }
+
 
 button {
-  padding: 10px 15px;
-  margin: 5px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
 }
 
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+
 #start {
-  background: #4caf50;
-  color: #fff;
+    background: #4caf50;
+    color: #fff;
 }
 
 #reset {
-  background: #f44336;
-  color: #fff;
+    background: #f44336;
+    color: #fff;
 }
 
 .tasks {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .tasks input {
-  width: 100%;
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 10px;
 }
 
 .tasks ul {
-  list-style: none;
+    list-style: none;
 }
 
 .tasks li {
-  background: rgba(255,255,255,0.1);
-  padding: 6px;
-  border-radius: 4px;
-  margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+#TituloTask {
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .quote {
-  margin-top: 20px;
-  font-style: italic;
-  opacity: 0.8;
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.8;
 }
