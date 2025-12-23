@@ -144,8 +144,63 @@ button:hover {
     opacity: 0.8;
 }
 
+
 @media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+        height: auto;
+    }
+
+    .app {
+        width: 100%;
+        padding: 20px;
+    }
+
     .content {
         flex-direction: column;
+        gap: 30px;
+    }
+
+    .timer {
+        width: 100%;
+    }
+
+    .timer h2 {
+        font-size: 40px;
+    }
+
+    button {
+        width: 100%;
+        margin: 8px 0;
+        font-size: 16px;
+        touch-action: manipulation;
+    }
+
+    .tasks {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .tasks input {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .tasks li {
+        padding: 10px;
+    }
+
+    .tasks li span {
+        font-size: 15px;
+    }
+
+    .tasks li button {
+        font-size: 20px;
+    }
+
+    .quote {
+        text-align: center;
+        font-size: 14px;
     }
 }
