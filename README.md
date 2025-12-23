@@ -17,7 +17,7 @@ Mini aplicação de foco e produtividade inspirada no método Pomodoro.
 - JavaScript
 
 ##  Demo
-Acesse: https://scurra55hs.github.io/Sem-enrola-o/
+Acesse: https://scurra55hs.github.io/SemEnrolacao/
 
 ##  Objetivo do Projeto
 Projeto criado para praticar JavaScript puro e reforçar o hábito de **finalizar projetos**.
