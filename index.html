@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Sem Enrolação</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <main class="app">
+  <div class="app">
     <h1>Sem Enrolação</h1>
 
-    <section class="timer">
-      <h2 id="time">25:00</h2>
-      <button id="start">Iniciar</button>
-      <button id="reset">Resetar</button>
-    </section>
+    <div class="content">
 
-    <section class="tasks">
-      <h3 id="TituloTask">Tarefas</h3>
-      <input type="text" id="taskInput" placeholder="Nova tarefa...">
-      <ul id="taskList"></ul>
-    </section>
+      <!-- BLOCO DO TIMER -->
+      <div class="timer">
+        <h2 id="time">25:00</h2>
 
-    <p class="quote" id="quote"></p>
-  </main>
+        <div>
+          <button id="start">Start</button>
+          <button id="reset">Reset</button>
+        </div>
+
+        <p class="quote"></p>
+      </div>
+
+      <!-- BLOCO DAS TASKS -->
+      <div class="tasks">
+        <h3 id="TituloTask">Tarefas</h3>
+
+        <input type="text" id="taskInput" placeholder="Adicionar nova tarefa...">
+
+        <ul id="taskList">
+        </ul>
+      </div>
+
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>

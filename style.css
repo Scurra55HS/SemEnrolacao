@@ -21,15 +21,38 @@ body {
     background: rgba(0, 0, 0, 0.4);
     padding: 30px;
     border-radius: 12px;
-    width: 320px;
-    text-align: center;
+    width: 90vw;
+    max-width: 900px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    align-items: flex-start;
+}
+
+
+.timer {
+    flex: 1;
+    text-align: center;
 }
 
 .timer h2 {
     font-size: 48px;
     margin: 20px 0;
     text-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+}
+
+
+.tasks {
+    flex: 1;
+    text-align: left;
 }
 
 
@@ -79,19 +102,19 @@ button:hover {
     padding: 6px;
     border-radius: 4px;
     margin-bottom: 5px;
-}
-
-#TituloTask {
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.tasks li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
 }
+
+#TituloTask {
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 
 .tasks li span {
     flex: 1;
@@ -108,14 +131,21 @@ button:hover {
     opacity: 0.7;
 }
 
-/* Hover clean */
+
 .tasks li button:hover {
     opacity: 1;
     transform: scale(1.2);
 }
 
 .quote {
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 50px;
     font-style: italic;
     opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+    }
 }

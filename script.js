@@ -111,11 +111,11 @@ const quotes = [
     "Faça mesmo sem vontade."
 ];
 
-const quoteElement = document.getElementById("quote");
+const quoteEl = document.querySelector('.quote');
 
 function changeQuote() {
     const random = Math.floor(Math.random() * quotes.length);
-    quoteElement.textContent = quotes[random];
+    quoteEl.textContent = quotes[random];
 }
 
 changeQuote();
