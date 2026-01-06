@@ -85,6 +85,7 @@ resetBtn.onclick = () => {
 
 // Tarefas
 const taskInput = document.getElementById("taskInput");
+console.log("INPUT ELEMENTO:", taskInput);
 const taskList = document.getElementById("taskList");
 
 taskInput.addEventListener("keydown", e => {
@@ -94,22 +95,25 @@ taskInput.addEventListener("keydown", e => {
     }
 });
 
-document.getElementById("addTaskBtn").addEventListener("click", () => {
-    if (taskInput.value.trim()) {
-        addTask(taskInput.value.trim());
-        taskInput.value = "";
-    }
-});
-
 
 async function addTask(text) {
-    const docRef = await addDoc(tasksRef, {
-        text,
-        createdAt: Date.now()
-    });
+    try {
+        console.log("ENVIANDO PARA FIREBASE:", text);
 
-    renderTask(docRef.id, text);
+        const docRef = await addDoc(tasksRef, {
+            text,
+            createdAt: Date.now()
+        });
+
+        console.log("SALVOU NO FIREBASE ID:", docRef.id);
+
+        renderTask(docRef.id, text);
+
+    } catch (err) {
+        console.error("🔥 ERRO AO SALVAR NO FIREBASE:", err);
+    }
 }
+
 
 function renderTask(id, text) {
     const li = document.createElement("li");
@@ -182,3 +186,19 @@ async function loadTasks() {
 }
 
 loadTasks();
+
+document.getElementById("addTaskBtn").addEventListener("click", (e) => {
+    e.preventDefault(); // evita form reset
+
+    console.log("BOTÃO CLICADO", taskInput.value);
+
+    const texto = taskInput.value.trim();
+
+    if (!texto) {
+        console.log("INPUT VAZIO");
+        return;
+    }
+
+    addTask(texto);
+    taskInput.value = "";
+});
