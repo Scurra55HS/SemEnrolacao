@@ -1,3 +1,32 @@
+// ---------------- FIREBASE ----------------
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    deleteDoc,
+    doc,
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDBjHsW-0N7znow4ZwCo82Wn5ovQa7Khzk",
+    authDomain: "semenrolacao-ca934.firebaseapp.com",
+    projectId: "semenrolacao-ca934",
+    storageBucket: "semenrolacao-ca934.firebasestorage.app",
+    messagingSenderId: "407271099730",
+    appId: "1:407271099730:web:04c374caa54a7551c67e8b",
+    measurementId: "G-5R3CYLFZYD"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const tasksRef = collection(db, "tasks");
+
+// ---------------- FIREBASE ----------------
+
+
 let focusTime = 25 * 60;
 let breakTime = 5 * 60;
 let time = focusTime;
@@ -65,7 +94,16 @@ taskInput.addEventListener("keypress", e => {
     }
 });
 
-function addTask(text) {
+async function addTask(text) {
+    const docRef = await addDoc(tasksRef, {
+        text,
+        createdAt: Date.now()
+    });
+
+    renderTask(docRef.id, text);
+}
+
+function renderTask(id, text) {
     const li = document.createElement("li");
 
     const span = document.createElement("span");
@@ -80,11 +118,15 @@ function addTask(text) {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "🗑️";
-    deleteBtn.onclick = () => li.remove();
+    deleteBtn.onclick = async () => {
+        await deleteDoc(doc(db, "tasks", id));
+        li.remove();
+    };
 
     li.append(span, editBtn, deleteBtn);
     taskList.appendChild(li);
 }
+
 
 
 // Frases
@@ -120,3 +162,15 @@ function changeQuote() {
 
 changeQuote();
 setInterval(changeQuote, 5 * 60 * 1000);
+
+
+// Carregar tarefas do Firestore
+
+async function loadTasks() {
+    const querySnapshot = await getDocs(tasksRef);
+    querySnapshot.forEach(doc => {
+        renderTask(doc.id, doc.data().text);
+    });
+}
+
+loadTasks();
