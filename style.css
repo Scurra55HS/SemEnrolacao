@@ -93,6 +93,21 @@ button:hover {
     margin-bottom: 10px;
 }
 
+#addTaskBtn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    font-size: 15px;
+}
+
+#addTaskBtn:active {
+    transform: scale(0.97);
+}
+
 .tasks ul {
     list-style: none;
 }

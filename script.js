@@ -87,12 +87,20 @@ resetBtn.onclick = () => {
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
-taskInput.addEventListener("keypress", e => {
+taskInput.addEventListener("keydown", e => {
     if (e.key === "Enter" && taskInput.value.trim()) {
-        addTask(taskInput.value);
+        addTask(taskInput.value.trim());
         taskInput.value = "";
     }
 });
+
+document.getElementById("addTaskBtn").addEventListener("click", () => {
+    if (taskInput.value.trim()) {
+        addTask(taskInput.value.trim());
+        taskInput.value = "";
+    }
+});
+
 
 async function addTask(text) {
     const docRef = await addDoc(tasksRef, {
